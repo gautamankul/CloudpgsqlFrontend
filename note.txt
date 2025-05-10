@@ -1,0 +1,5 @@
+ 1. ng g class models/connections
+
+ 2. ng g s services/auth
+
+ 3. ng generate environments
