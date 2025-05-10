@@ -3,3 +3,9 @@
  2. ng g s services/auth
 
  3. ng generate environments
+
+
+ -------- how third party works -------
+
+ 1. If anything installing new add on 'main.ts'
+ 2. and add on 'app.config.ts'

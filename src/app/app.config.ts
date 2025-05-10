@@ -1,14 +1,11 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { withEventReplay } from '@angular/platform-browser';
+import { provideClientHydration } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
-
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,11 +13,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
+    provideAnimations(),
     provideToastr({
       timeOut: 3000,
       positionClass: 'toast-top-right',
-      preventDuplicates: true
-    })
-
+      preventDuplicates: true,
+    }),
   ],
 };

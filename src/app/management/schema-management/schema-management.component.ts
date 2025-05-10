@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
 
@@ -38,6 +39,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     ReactiveFormsModule,
     // BrowserAnimationsModule
+  ],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity: 1, transform: 'translateX(0)' })),
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-100%)' }),
+        animate('300ms ease-in')
+      ]),
+      transition(':leave', [
+        animate('300ms ease-out', style({ opacity: 0, transform: 'translateX(100%)' }))
+      ])
+    ])
   ],
   templateUrl: './schema-management.component.html',
   styleUrl: './schema-management.component.scss'
